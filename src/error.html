@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>%sveltekit.status% - Starnix MC</title>
+		<link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet" />
+		<link href="https://fonts.cdnfonts.com/css/minecrafter-alt" rel="stylesheet" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Minecraftia', sans-serif;
+				background: linear-gradient(to bottom, #faf5ff, #f3e8ff);
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 1rem;
+			}
+
+			.container {
+				max-width: 48rem;
+				width: 100%;
+				text-align: center;
+			}
+
+			.error-code {
+				font-family: 'Minecrafter Alt', sans-serif;
+				font-size: 6rem;
+				color: #581c87;
+				margin-bottom: 1rem;
+			}
+
+			.error-title {
+				font-family: 'Minecrafter Alt', sans-serif;
+				font-size: 2rem;
+				color: #6b21a8;
+				margin-bottom: 1rem;
+			}
+
+			.error-message {
+				font-size: 1.125rem;
+				color: rgba(107, 33, 168, 0.9);
+				margin-bottom: 2rem;
+				line-height: 1.75;
+			}
+
+			.error-box {
+				background: linear-gradient(to right, #f3e8ff, #e9d5ff);
+				border: 2px solid #d8b4fe;
+				border-radius: 0.5rem;
+				padding: 2rem;
+				margin-bottom: 2rem;
+			}
+
+			.button {
+				display: inline-block;
+				background: #7c3aed;
+				color: white;
+				font-family: 'Minecrafter Alt', sans-serif;
+				padding: 0.75rem 1.5rem;
+				border-radius: 0.5rem;
+				text-decoration: none;
+				transition: background-color 0.2s;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			}
+
+			.button:hover {
+				background: #6d28d9;
+				box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+			}
+
+			.links {
+				margin-top: 2rem;
+				font-size: 0.875rem;
+				color: rgba(107, 33, 168, 0.9);
+			}
+
+			.links a {
+				color: #7c3aed;
+				text-decoration: underline;
+			}
+
+			.links a:hover {
+				color: #6d28d9;
+			}
+
+			.links span {
+				color: #c4b5fd;
+				margin: 0 0.5rem;
+			}
+
+			@media (max-width: 640px) {
+				.error-code {
+					font-size: 4rem;
+				}
+
+				.error-title {
+					font-size: 1.5rem;
+				}
+
+				.error-message {
+					font-size: 1rem;
+				}
+
+				.error-box {
+					padding: 1.5rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="error-code">%sveltekit.status%</h1>
+			<div class="error-box">
+				<h2 class="error-title">Oops! Something Went Wrong</h2>
+				<p class="error-message">%sveltekit.error.message%</p>
+				<a href="/" class="button">Return to Home</a>
+			</div>
+			<div class="links">
+				<p>Need help?</p>
+				<a href="/support">Contact Support</a>
+				<span>•</span>
+				<a href="/staff">Meet Our Staff</a>
+				<span>•</span>
+				<a href="/rules">Server Rules</a>
+			</div>
+		</div>
+	</body>
+</html>
