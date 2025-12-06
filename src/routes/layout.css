@@ -1,0 +1,243 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@theme {
+  --font-minecrafter: "Minecrafter", sans-serif;
+  --font-minecrafter-alt: "Minecrafter Alt", sans-serif;
+  --font-minecraftia: "Minecraftia", sans-serif;
+  --animate-float: float 3s ease-in-out infinite;
+}
+
+:root {
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========================================
+   VIEW TRANSITIONS - SMOOTH PAGE CHANGES
+   ======================================== */
+
+/* Main content: Fade + slight scale transition */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: view-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: view-fade-in;
+}
+
+@keyframes view-fade-out {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+}
+
+@keyframes view-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(1.05) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ========================================
+   HEADER/NAVBAR TRANSITIONS
+   ======================================== */
+
+::view-transition-old(header),
+::view-transition-new(header) {
+  /*animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;*/
+}
+
+::view-transition-old(header) {
+  /*animation-name: slide-out-top;*/
+}
+
+::view-transition-new(header) {
+  /*animation-name: slide-in-top;*/
+}
+
+@keyframes slide-out-top {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    opacity: 0.8;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   FOOTER TRANSITIONS
+   ======================================== */
+
+::view-transition-old(footer),
+::view-transition-new(footer) {
+  /*animation-duration: 500ms;*/
+  /*animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);*/
+  /*overflow: visible;*/
+}
+
+::view-transition-old(footer) {
+  /*animation-name: slide-out-bottom;*/
+}
+
+::view-transition-new(footer) {
+  /*animation-name: slide-in-bottom;*/
+}
+
+@keyframes slide-out-bottom {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    opacity: 0.8;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   CONTENT AREA TRANSITIONS
+   ======================================== */
+
+::view-transition-old(main-content),
+::view-transition-new(main-content) {
+  animation-duration: 450ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(main-content) {
+  animation-name: content-fade-out;
+}
+
+::view-transition-new(main-content) {
+  animation-name: content-fade-in;
+}
+
+@keyframes content-fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.98);
+  }
+}
+
+@keyframes content-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================================
+   REDUCED MOTION SUPPORT
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(header),
+  ::view-transition-new(header),
+  ::view-transition-old(footer),
+  ::view-transition-new(footer),
+  ::view-transition-old(main-content),
+  ::view-transition-new(main-content) {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* ========================================
+   NAVIGATION LINK ENHANCEMENTS
+   ======================================== */
+
+a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth hover effects */
+a:hover {
+  transform: translateY(-1px);
+}
+
+a:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   ADDITIONAL POLISH
+   ======================================== */
+
+/* Ensure smooth transitions for all elements */
+* {
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Don't apply transitions to animations */
+[class*="animate-"] {
+  transition: none;
+}
+
+body {
+  background-color: var(--color-bg);
+}
