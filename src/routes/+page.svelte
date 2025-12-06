@@ -10,8 +10,8 @@
     name="description"
     content="Welcome to Starnix MC - A premier Minecraft RPG server with amazing features and a friendly community. Join and play with your friends!"
   />
-  <meta name="theme-color" content="#542AA8" />
-  <meta content="https://starnixmc.com/icon.png" property="og:image" />
+  <meta name="theme-color" content="#542aa8" />
+  <meta content="https://starnixmc.xyz/icon.png" property="og:image" />
 </svelte:head>
 
 <div class="flex justify-center px-4 py-12">
